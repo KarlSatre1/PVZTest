@@ -8,7 +8,7 @@ public class StudyTest : MonoBehaviour
     void Start()
     {
         //写一段登录程序   
-
+ddddd asdd 
     }
 
     // Update is called once per frame
