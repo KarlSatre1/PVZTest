@@ -7,26 +7,30 @@ public class Card : MonoBehaviour
 {
     public GameObject darkBg;
     public GameObject progressBar;
-    public  float waitingTime;
+    public  float waitTime;
     public int useSun;
     private float timer;
     // Start is called before the first frame update
     void Start()
     {
-        darkBg = transform.Find("Dark").gameObject;
-        progressBar = transform.Find("Progress").gameObject;
+        darkBg = transform.Find("dark").gameObject;
+        progressBar = transform.Find("progress").gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
+        UpdateProgress();
+        UpdateDarkBg();
     }
+
     void UpdateProgress()
     {
-        float per = Mathf.Clamp(timer / waitingTime, 0, 1);
+        float per = Mathf.Clamp(timer / waitTime, 0, 1);
         progressBar.GetComponent<Image>().fillAmount = 1- per;
     }
+
     void UpdateDarkBg()
     {
         if (progressBar.GetComponent<Image>().fillAmount == 0)
