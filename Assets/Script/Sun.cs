@@ -18,7 +18,7 @@ public class Sun : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= duration)
         {
-           Destroy(gameObject);
+           GameObject.Destroy(gameObject);
         }
     }
 }
