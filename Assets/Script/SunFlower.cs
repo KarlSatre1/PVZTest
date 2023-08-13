@@ -36,7 +36,7 @@ public class SunFlower : MonoBehaviour
 
     private void BornSun()
     {
-        GameObject sunNew = Instantiate(sunPrefab);
+        GameObject sunNew = Instantiate(sunPrefab); //生成sunPrefab物体
         sunNum += 1;
         float randomX;
         if(sunNum % 2 == 1)

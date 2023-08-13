@@ -9,9 +9,11 @@ public class Peashooter : MonoBehaviour
     public float timer;
     public GameObject bullet;
     public Transform bulletPos;
+    public  float health = 100;
+    public  float currentHealth;
     void Start()
     {
-        
+        currentHealth = health;
     }
 
     // Update is called once per frame
@@ -24,5 +26,16 @@ public class Peashooter : MonoBehaviour
             Instantiate(bullet,bulletPos.position,Quaternion.identity);
 
         }
+    }
+    
+    //受伤逻辑
+    public float ChangeHealth(float num)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + num,0,health);
+        if(currentHealth <= 0)
+        {
+            GameObject.Destroy(gameObject);
+        }
+        return currentHealth;
     }
 }
