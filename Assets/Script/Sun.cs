@@ -21,4 +21,13 @@ public class Sun : MonoBehaviour
            GameObject.Destroy(gameObject);
         }
     }
+
+    //阳光被点击后飞到UI位置，增加阳光数量
+    private void OnMouseDown()
+    {
+        //TODO: 阳光飞到UI位置然后销毁
+        
+        GameObject.Destroy(gameObject);
+        GameManager.instance.ChangeSunNum(25);
+    }
 }

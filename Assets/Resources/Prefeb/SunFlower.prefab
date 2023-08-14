@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77aec5b01446644fa05599d881dba26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 150
   readyTime: 3
   sunPrefab: {fileID: 515475241896790836, guid: bc2527d2923c6704f9b83066f6ffe200, type: 3}
 --- !u!50 &7974901897188643610
@@ -156,7 +157,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -8.075302, y: 4.3068123}
+  m_Offset: {x: -8.075302, y: -13.58942}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -167,5 +168,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 56.849396, y: 93.38065}
+  m_Size: {x: 56.849396, y: 48.351433}
   m_EdgeRadius: 0

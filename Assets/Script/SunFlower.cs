@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SunFlower : MonoBehaviour
-{
-    // Start is called before the first frame update
-    private Animator animator;
+public class SunFlower : Plant
+{   // Start is called before the first frame update
+    
     public float readyTime;
     private float timer;
     public GameObject sunPrefab;
     private int sunNum;
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         animator = GetComponent<Animator>();
         timer =  0;
 
@@ -20,6 +20,10 @@ public class SunFlower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!plantStart)
+        {
+            return;
+        }
         timer += Time.deltaTime;
         if (timer >= readyTime)
         {
@@ -49,7 +53,7 @@ public class SunFlower : MonoBehaviour
 
         }
         float randomY = Random.Range(transform.position.y - 20, transform.position.y + 20);
-        sunNew.transform.position = new Vector2(randomX, randomY);
+        sunNew.transform.position = new Vector3(randomX, randomY,-0.1f);
 
 
     }

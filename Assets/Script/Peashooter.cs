@@ -2,23 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Peashooter : MonoBehaviour
+public class Peashooter : Plant
 {
     // Start is called before the first frame update
     public float interval;
     public float timer;
     public GameObject bullet;
     public Transform bulletPos;
-    public  float health = 100;
-    public  float currentHealth;
-    void Start()
+
+    protected override void Start()
     {
-        currentHealth = health;
+        base.Start();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!plantStart)
+        {
+            return;
+        }
         timer +=Time.deltaTime;
         if(timer >= interval)
         {
@@ -29,13 +33,5 @@ public class Peashooter : MonoBehaviour
     }
     
     //受伤逻辑
-    public float ChangeHealth(float num)
-    {
-        currentHealth = Mathf.Clamp(currentHealth + num,0,health);
-        if(currentHealth <= 0)
-        {
-            GameObject.Destroy(gameObject);
-        }
-        return currentHealth;
-    }
+
 }

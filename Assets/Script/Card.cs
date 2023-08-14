@@ -38,7 +38,7 @@ public class Card : MonoBehaviour
 
     void UpdateDarkBg()
     {
-        if (progressBar.GetComponent<Image>().fillAmount == 0)
+        if (progressBar.GetComponent<Image>().fillAmount == 0 && GameManager.instance.sunNum >= useSun)
         {
             darkBg.SetActive(false);
         }
@@ -50,6 +50,11 @@ public class Card : MonoBehaviour
 //鼠标拖曳开始的方法
     public void OnBeginDrag(BaseEventData data)
     {
+        //判断是否可以种植，雅黑存在则无法种植
+        if(darkBg.activeSelf)
+        {
+            return;
+        }
         Debug.Log("OnBeginDrag" + data.ToString());
         PointerEventData pointerEventData = data as PointerEventData;
         curGameObject = Instantiate(objectPrefab);
@@ -72,7 +77,7 @@ public class Card : MonoBehaviour
 
 
 
-    //鼠标抬起的方法
+    //拖曳结束,鼠标抬起的方法
     public void OnEndDrag(BaseEventData data)   //拖拽结束
     {
         Debug.Log("OnEndDrag" + data.ToString());
@@ -82,7 +87,7 @@ public class Card : MonoBehaviour
         }
         PointerEventData pointerEventData = data as PointerEventData;
         //获取当前鼠标位置下的碰撞体
-        Collider2D [] col = Physics2D.OverlapPointAll(TranslateScreenToWorld(pointerEventData.position));
+        Collider2D[] col = Physics2D.OverlapPointAll(TranslateScreenToWorld(pointerEventData.position));
         //遍历碰撞体,判断物体为“土地”且没有子物体时
         foreach (Collider2D c in col)
         {
@@ -91,9 +96,16 @@ public class Card : MonoBehaviour
                 //把物体放到碰撞体位置，作为其子物体
                 //curGameObject.transform.SetParent(c.transform);
                 curGameObject.transform.parent = c.transform;
-                curGameObject.transform.localPosition = Vector3.zero;
+                curGameObject.transform.localPosition = Vector3.zero;//Shorthand for writing Vector3(0, 0, 0).
+                //启动植物
+                curGameObject.GetComponent<Plant>().SetPlantStart();
+                
                 //重置默认值，生成结束
                 curGameObject = null;
+                //扣除阳光
+                GameManager.instance.ChangeSunNum(-useSun);
+                //重置计时器
+                timer = 0;
                 break;
             }
         }
