@@ -1,23 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
-
+using UnityEngine;
+using System.Collections.Generic;
+//[CreateAssetMenu(menuName = "XiaoQi/LevelData", fileName = "LevelData", order = 3)]
 public class LevelData : ScriptableObject
 {
-    public list<LevelItem> levelDataList = new List<LevelItem>();
+    public List<LevelItem> LevelDataList = new List<LevelItem>();
+    // public Dictionary<int, LevelItem> LevelDataDict = new Dictionary<int, LevelItem>();
 }
+
 [System.Serializable]
 public class LevelItem
 {
-    public int ID;
+    public int id;
+    public int levelId;
+    public int progressId;
+    public int createTime;
+    public int zombieType;
+    public int bornPos;
 
-    public int DungeonsID;
-
-    public int ProgressID;
-    public int CreateTime;
-    public int ZombieType;
-    public int BornPos;
-    
-
+    // override
+    // public string ToString()
+    // {
+    //     return "[id]: " + id.ToString();
+    // }
 }
+
