@@ -35,7 +35,7 @@ public class Plant : MonoBehaviour
         boxCollider2D.enabled = true;
     }
 //受伤逻辑
-    public float ChangeHealth(float num)
+    public virtual float ChangeHealth(float num)
     {
         currentHealth = Mathf.Clamp(currentHealth + num,0,health);
         if(currentHealth <= 0)

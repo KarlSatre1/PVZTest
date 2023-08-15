@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(createZombieTime);
         GameObject zombie = Instantiate(zombiePrefab);
-        int index = Random.Range(0, 5);
+        int index = Random.Range(2, 4);
         Transform zobieLine = bornParent.transform.Find("born" + index.ToString());
         zombie.transform.parent = zobieLine;    
         zombie.transform.localPosition = Vector3.zero;
