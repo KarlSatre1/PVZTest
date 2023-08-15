@@ -100,7 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 1, y: 0, z: 0}
-  speed: 100
+  speed: 200
+  damage: 15
 --- !u!61 &2258012746308413326
 BoxCollider2D:
   m_ObjectHideFlags: 0
