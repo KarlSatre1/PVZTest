@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+    
+    public bool gameStart;
     public static GameManager instance;
     public int sunNum;  //需要将太阳数量的文本控件拖拽到这里
 
@@ -14,6 +15,11 @@ public class GameManager : MonoBehaviour
     public float createZombieTime;
     private int zOrderIndex = 0;
 
+    //读取数据表的逻辑
+    public LevelData levelData;
+    [HideInInspector]
+
+
 
     // Start is called before the first frame update
     void Awake()
@@ -22,12 +28,42 @@ public class GameManager : MonoBehaviour
        
     }   
 
-
-    private void Start() //游戏开始之初显示UIManager中的sunNum
+    void Start()
     {
+        ReadData();
+    }
+
+    private void GameStart() //游戏开始之初显示UIManager中的sunNum
+    {   
+        
+
+
         //instance = this;
         UIManager.instance.InitUI();
+    }   
+
+    public void GameReallyStart()
+    {
+        GameManager.instance.gameStart = true;
         CreateZombie();
+    }
+    
+
+    void ReadData()
+    {
+        StartCoroutine(LoadTable());
+
+    }
+
+    IEnumerator LoadTable()
+    {
+        ResourceRequest request = Resources.LoadAsync("Level");
+        yield return request;
+        levelData = request.asset as LevelData;
+        for (int i = 0; i < levelData.LevelDataList.Count; i++)
+        {
+            Debug.Log("测试僵尸生成" + levelData.LevelDataList[i]);
+        }
     }
 
 
