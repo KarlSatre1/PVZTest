@@ -103,3 +103,9 @@ MonoBehaviour:
     createTime: 14
     zombieType: 1
     bornPos: 1
+  - id: 21
+    levelId: 1
+    progressId: 4
+    createTime: 2
+    zombieType: 1
+    bornPos: 3

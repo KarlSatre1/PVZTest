@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
-//[CreateAssetMenu(menuName = "XiaoQi/LevelData", fileName = "LevelData", order = 3)]
+[CreateAssetMenu(menuName = "XiaoQi/LevelData", fileName = "LevelData", order = 3)]
 public class LevelData : ScriptableObject
 {
     public List<LevelItem> LevelDataList = new List<LevelItem>();
@@ -9,6 +9,8 @@ public class LevelData : ScriptableObject
 }
 
 [System.Serializable]
+
+
 public class LevelItem
 {
     public int id;
@@ -18,10 +20,11 @@ public class LevelItem
     public int zombieType;
     public int bornPos;
 
-    // override
-    // public string ToString()
-    // {
-    //     return "[id]: " + id.ToString();
-    // }
+    override
+    public string ToString()
+    {
+        return "[id]: " + id.ToString();
+    }
 }
+
 
