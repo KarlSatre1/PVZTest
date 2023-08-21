@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73205c15c8199694ab7708146e6b47d5, type: 3}
+  m_Name: PlantInfo
+  m_EditorClassIdentifier: 
+  plantInfoList:
+  - plantId: 0
+    plantName: 
+    description: 
+    cardPrefab: {fileID: 0}
+  - plantId: 1
+    plantName: "\u5411\u65E5\u8475"
+    description: "\u5411\u65E5\u8475\u53EF\u4EE5\u4EA7\u751F\u592A\u9633"
+    cardPrefab: {fileID: 8293145427243384191, guid: 8ea3550d46ce6e54aa648b1b412a7fda, type: 3}
+  - plantId: 2
+    plantName: "\u575A\u679C"
+    description: "\u524D\u6392\u62B5\u5FA1\u50F5\u5C38\u8FDB\u653B"
+    cardPrefab: {fileID: 372830405621319510, guid: 3eece9ea5c9bab14ca0132faefd47e68, type: 3}
+  - plantId: 3
+    plantName: "\u8C4C\u8C46\u5C04\u624B"
+    description: "\u53EF\u4EE5\u53D1\u5C04\u5B50\u5F39\u6D88\u706D\u50F5\u5C38"
+    cardPrefab: {fileID: 8221859369012605785, guid: 10847fd13198b1c4fad15b8d2288a648, type: 3}

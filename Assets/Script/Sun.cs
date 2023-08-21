@@ -42,6 +42,8 @@ public class Sun : MonoBehaviour
         //TODO: 阳光飞到UI位置然后销毁
         
         GameObject.Destroy(gameObject);
+        //播放拾取阳光的音效
+        SoundManager.instance.PlaySound(Globals.S_SunCollect);
         GameManager.instance.ChangeSunNum(25);
     }
 }

@@ -59,6 +59,7 @@ public class Card : MonoBehaviour
         PointerEventData pointerEventData = data as PointerEventData;
         curGameObject = Instantiate(objectPrefab);
         curGameObject.transform.position = TranslateScreenToWorld(pointerEventData.position);
+        SoundManager.instance.PlaySound(Globals.S_Seedlift);
     }
     
   
@@ -99,6 +100,8 @@ public class Card : MonoBehaviour
                 curGameObject.transform.localPosition = Vector3.zero;//Shorthand for writing Vector3(0, 0, 0).
                 //启动植物
                 curGameObject.GetComponent<Plant>().SetPlantStart();
+                //播放种植音效
+                SoundManager.instance.PlaySound(Globals.S_Plant);
                 
                 //重置默认值，生成结束
                 curGameObject = null;

@@ -92,6 +92,8 @@ public class ZombieNormal : MonoBehaviour
                 // //todo:对植物造成伤害,这里只对豌豆射手造成伤害改成对所有植物造成伤害
                 Plant plant = other.GetComponent<Plant>();
                 float newHealth = plant.ChangeHealth(-damage);
+                //播放僵尸攻击音效
+                SoundManager.instance.PlaySound(Globals.S_ZombieEat);
                 if (newHealth <= 0)
                 {
                     isWalk = true;

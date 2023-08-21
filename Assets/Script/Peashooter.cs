@@ -28,6 +28,8 @@ public class Peashooter : Plant
         {
             timer = 0;
             Instantiate(bullet,bulletPos.position,Quaternion.identity);
+            //播放射击音效
+            SoundManager.instance.PlaySound(Globals.S_Shoot);
 
         }
     }
