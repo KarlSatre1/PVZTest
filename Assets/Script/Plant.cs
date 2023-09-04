@@ -6,7 +6,7 @@ public class Plant : MonoBehaviour
 {
     public  float health = 100;
     protected  float currentHealth;
-    protected bool plantStart;
+    protected bool start;
     protected Animator animator;  //private,public,protected的区别
     protected BoxCollider2D boxCollider2D;
 
@@ -14,7 +14,7 @@ public class Plant : MonoBehaviour
     protected virtual void Start()
     {
         currentHealth = health;
-        plantStart = false;
+        start = false;
         animator = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         animator.speed = 0;
@@ -28,9 +28,9 @@ public class Plant : MonoBehaviour
     }
     
     //启动植物的开关
-    public void SetPlantStart()
+    public  virtual void SetPlantStart()
     {
-        plantStart = true;
+        start = true;
         animator.speed = 1;
         boxCollider2D.enabled = true;
     }

@@ -6,11 +6,11 @@ public class PeaBullet : MonoBehaviour
 {
     public Vector3 direction;
     public float speed;
-    public float damage = 15f;
+    public float damage = 10f;
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Destroy(gameObject, 10f);
+        GameObject.Destroy(gameObject, 3f);
     }
 
     // Update is called once per frame

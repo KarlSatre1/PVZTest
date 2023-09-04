@@ -20,7 +20,7 @@ public class SunFlower : Plant
     // Update is called once per frame
     void Update()
     {
-        if (!plantStart)
+        if (!start)
         {
             return;
         }

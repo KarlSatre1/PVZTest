@@ -53,6 +53,9 @@ TagManager:
   - name: Zombie
     uniqueID: 2742180775
     locked: 0
+  - name: Squash
+    uniqueID: 1156318599
+    locked: 0
   - name: Bullets
     uniqueID: 3393337151
     locked: 0

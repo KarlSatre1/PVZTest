@@ -101,5 +101,38 @@ public class GameManager : MonoBehaviour
     //     sun.GetComponent<Sun>().SetTargetPos(new Vector3(bornPos.x, y, 0));
 
     // }
+    public int GetPlantLine(GameObject plant)
+    {
+        GameObject lineObject = plant.transform.parent.parent.gameObject;
+        string lineStr = lineObject.name;
+        // int line = int.Parse(lineStr.Split("line")[1]);
+        int line = int.Parse(Split(lineStr, "line")[1]);
+        return line;
+    }
+
+    public List<GameObject> GetLineZombies(int line)
+    {
+        string lineName = "born" + line.ToString();
+        Transform bornObject = bornParent.transform.Find(lineName);
+        List<GameObject> zombies = new List<GameObject>();
+        for (int i = 0; i < bornObject.childCount; i++)
+        {
+            zombies.Add(bornObject.GetChild(i).gameObject);
+        }
+        return zombies;
+    }
+    public static string[] Split(string source, string str)
+    {
+        var list = new List<string>();
+        while (true)
+        {
+            var index = source.IndexOf(str);
+            if (index < 0) { list.Add(source); break; }
+            var rs = source.Substring(0, index);
+            list.Add(rs);
+            source = source.Substring(index + str.Length);
+        }
+        return list.ToArray();
+    }
 
 }
